@@ -1,6 +1,8 @@
 # Catcube – 3D rasterizer
 
-Gouraud shading and texturing on a cat photo cube. Refactored into a Vite project with a modular 3D rasterizer library.
+Gouraud shading and texturing on a cat photo cube. Refactored into a Vite project with a modular 3D rasterizer library. I wrote the original back in 2016 for this, but like some other repositories I was working on it was working but a hot mess. I decided to take it and work on it using Cursor with AI agents to make it comply with modern standards of web dev projects. It's much more structured and organized now, which is nice.
+
+I like that this has a complete shader and gouraud functionality in there, even with a bit of lighting. I'd want to also iterate on this to improve performance, where initially I just created it as a proof of concept to see if I could move around a textured object at all. It's a pretty ok 3d renderer, although not matrix based, so probably there already there is some performance mileage to be gained.
 
 ## Setup
 
@@ -22,7 +24,7 @@ npm install
   - **`constants.js`** – Screen/canvas size, aspect ratio, z-index enums
   - **`math/`** – Trig lookup, vector math, 3D→2D projection and rotation
   - **`geometry/`** – Polygon, Camera, Object3D (back-face culling, painter’s algorithm)
-  - **`rasterizer/`** – Flat/Gouraud/textured triangle rasterization, shading, drawObject*
+  - **`rasterizer/`** – Flat/Gouraud/textured triangle rasterization, shading, drawObject\*
   - **`color/`** – rgbToHsl
   - **`shapes/`** – createCube, createTextureMap
 - **`public/images/`** – Cat textures (served at `/images/`)
