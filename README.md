@@ -1,4 +1,6 @@
-# Catcube – 3D rasterizer
+# Kitty cube – 3D rasterizer
+
+Hosted: https://zzp-online-marketing.nl/kitty-cube/
 
 Gouraud shading and texturing on a cat photo cube. Refactored into a Vite project with a modular 3D rasterizer library. I wrote the original back in 2016 for this, but like some other repositories I was working on it was working but a hot mess. I decided to take it and work on it using Cursor with AI agents to make it comply with modern standards of web dev projects. It's much more structured and organized now, which is nice.
 

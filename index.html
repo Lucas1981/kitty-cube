@@ -25,7 +25,17 @@
         background: grey;
         width: 100%;
         float: left;
+      }
+      #content .container {
+        display: flex;
+        align-items: flex-start;
         padding-top: 10px;
+      }
+      .spacer {
+        flex: 0 0 320px;
+      }
+      .canvas-area {
+        flex: 0 0 640px;
       }
       #footer {
         background: black;
@@ -50,7 +60,7 @@
         padding: 5px;
       }
       #canvas {
-        margin: 0 320px 0 320px;
+        display: block;
         padding: 0;
         border-radius: 10px;
         background: #000000;
@@ -58,10 +68,35 @@
         height: 480px;
       }
       #fps-display {
-        margin: 4px 320px 0 320px;
+        margin-top: 4px;
         font-family: monospace;
         font-size: 14px;
         color: #eee;
+      }
+      .controls {
+        flex: 0 0 320px;
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+      .control {
+        background: white;
+        border-radius: 6px;
+        padding: 10px 14px;
+      }
+      .control h4 {
+        margin: 0 0 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #555;
+      }
+      .control label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 4px 0;
+        font-size: 14px;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -73,10 +108,27 @@
     </div>
     <div id="content">
       <div class="container">
-        <canvas id="canvas">Not supported</canvas>
-        <div id="fps-display">FPS: —</div>
-        <div>
-          <span id="z0"></span> <span id="z1"></span> <span id="z2"></span>
+        <div class="spacer"></div>
+        <div class="canvas-area">
+          <canvas id="canvas">Not supported</canvas>
+          <div id="fps-display">FPS: —</div>
+        </div>
+        <div class="controls">
+          <div class="control">
+            <h4>Render mode</h4>
+            <label>
+              <input type="radio" name="render-mode" value="flat">
+              Flat shading
+            </label>
+            <label>
+              <input type="radio" name="render-mode" value="gouraud">
+              Gouraud
+            </label>
+            <label>
+              <input type="radio" name="render-mode" value="gouraud-texture" checked>
+              Gouraud + Texture
+            </label>
+          </div>
         </div>
       </div>
     </div>

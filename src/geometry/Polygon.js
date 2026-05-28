@@ -12,6 +12,7 @@ export class Polygon {
     this.strokeColor = undefined;
     this.surfaceNormal = undefined;
     this.texture = undefined;
+    this.uv = undefined;
     this.zIndex = undefined;
   }
 }

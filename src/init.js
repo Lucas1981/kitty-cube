@@ -17,12 +17,13 @@ function loadImage(src) {
 }
 
 export async function init() {
-  const cubeData = await fetch('/assets/textured-cube.json').then((r) => r.json());
+  const base = import.meta.env.BASE_URL;
+  const cubeData = await fetch(`${base}assets/textured-cube.json`).then((r) => r.json());
   const objects = new Object3D(cubeData);
 
   console.log('Loading textures…');
   const images = await Promise.all(
-    Array.from({ length: TOTAL_IMAGES }, (_, i) => loadImage(`/images/cats${i + 1}.jpg`))
+    Array.from({ length: TOTAL_IMAGES }, (_, i) => loadImage(`${base}images/cats${i + 1}.jpg`))
   );
   console.log(`${TOTAL_IMAGES} textures loaded.`);
 
@@ -35,16 +36,13 @@ export async function init() {
     offScreenCanvas.height = height;
     offScreenContext.drawImage(images[i], 0, 0);
     const textureData = offScreenContext.getImageData(0, 0, width, height);
+    const tw = width - 1;
+    const th = height - 1;
     objects.poly[i * 2].texture = textureData;
+    objects.poly[i * 2].uv = [[0, 0], [tw, 0], [tw, th]];
     objects.poly[i * 2 + 1].texture = textureData;
+    objects.poly[i * 2 + 1].uv = [[0, 0], [tw, th], [0, th]];
   }
-
-  const tw = images[0].width - 1;
-  const th = images[0].height - 1;
-  objects.uv = [
-    [[0, 0], [tw, 0], [tw, th]],
-    [[0, 0], [tw, th], [0, th]],
-  ];
 
   return objects;
 }
