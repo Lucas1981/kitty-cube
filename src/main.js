@@ -22,7 +22,7 @@ const renderModeInput = () =>
 
 const canvas = document.getElementById("canvas");
 const fpsDisplay = document.getElementById("fps-display");
-const context = canvas.getContext("2d", { willReadFrequently: true });
+const context = canvas.getContext("2d");
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
